@@ -10,6 +10,22 @@ h1 {
     text-decoration: underline;
   }
 
+.credits {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    font-size: 18px;
+}
+
+.song-select{
+    border-radius: 5px;
+    border: 1px solid #000;
+    padding: 20px 20px;
+    background: rgb(0, 247, 255);
+    font-size: 2em;
+    cursor: pointer;
+}
+
 body {
     background-image: url("./images/temp-background.jpg");
     background-repeat: no-repeat;
