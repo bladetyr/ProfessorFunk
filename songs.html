@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width">
     <title>Professor Funk</title>
     <link href="StyleSheet.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="/src/beatmapInterpreter.js"></script>
 </head>
 <body>
 <script>
@@ -14,8 +16,11 @@
 
 <h1>Professor Funk</h1>
 <h2>
-    <script type="text/javascript">
-        document.write(beatValue)
+    <script>
+        $(document).ready( function() {
+            parseBeatmap(beatValue);
+            playAudio(beatValue);
+        });
     </script>
 </h2>
 
