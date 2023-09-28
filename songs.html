@@ -24,6 +24,20 @@
     </script>
 </h2>
 
+<div class="input">
+    <div class="key"></div>
+    <div class="key-code">32</div>
+</div>
+
+<script>
+    const input = document.querySelector(".input");
+    document.addEventListener("keydown", e =>{
+        input.querySelector(".key").innerText = e.key;
+        let keypress = e.key;
+        console.log(e);
+    });
+</script>
+
 <h3 class="credits">Created By: Blade Tyrrell, Devin Cummings, Harleen Chahal, and Ahilyn Dipre-Figuereo</h3>
 
 </body>
