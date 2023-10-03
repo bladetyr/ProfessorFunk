@@ -26,6 +26,12 @@ h1 {
     cursor: pointer;
 }
 
+.center-font{
+    position: relative;
+    top: 30%;
+    margin: auto;
+}
+
 body {
     background-image: url("./images/temp-background.jpg");
     background-repeat: no-repeat;
