@@ -19,6 +19,37 @@
     <a href="/ProfessorFunk/songs.html?song=song4"><button class="song-select">Song 4</button></a>
 </div>
 
+<!-- div for arrows -->
+<div>
+    <img src="images/leftArrow.png" alt="left arrow">
+    <img src="images/downArrow.png" alt="down arrow">
+    <img src="images/upArrow.png" alt="up arrow">
+    <img src="images/rightArrow.png" alt="right arrow"><br>
+    <img src="images/downArrowShadow.png" alt="down arrow shadow">
+    <img src="images/upArrowShadow.png" alt="up arrow shadow">
+    <img src="images/rightArrowShadow.png" alt="right arrow shadow">
+</div>
+
+<!-- canvas for arrows images-->
+<script src ="./src/arrowMovement.js"></script>
+<canvas id="arrows" width="500" height="200"></canvas>
+<script>
+    var canvas = document.getElementById('arrows');
+    var context = canvas.getContext('2d');
+    var x = 188;
+    var y = 30;
+    var width = 200;
+    var height = 137;
+    var newArrows = new Image();
+
+    newArrows.onload = function(){
+        context.drawImage(newArrows, x, y, width, height);
+    };
+    newArrows.src = 'images/leftArrowShadow.png';
+        //context.drawImage(newArrows, x, y, width, height);
+    //newArrows.src = 'images/rightArrow.png';
+
+</script>
 <h3 class="credits">Created By: Blade Tyrrell, Devin Cummings, Harleen Chahal, and Ahilyn Dipre-Figuereo</h3>
 
 </body>
