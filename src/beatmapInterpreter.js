@@ -1,5 +1,5 @@
 // DIRECTION/TIME TAKEN TO GO UP/TIME UNTIL READING NEXT NOTE
-var file = "../beatmaps/";
+var file = "../ProfessorFunk/beatmaps/";
 function parseBeatmap(beatMap){
     file += beatMap;
     $.get(file,function(txt){
@@ -13,7 +13,7 @@ function parseBeatmap(beatMap){
 
 // PLAY SONG
 function playAudio(beatMap){
-    var audio = new Audio('../songs/'+beatMap+'.wav');
+    var audio = new Audio('../ProfessorFunk/songs/'+beatMap+'.wav');
     audio.play();
     return 0;
 }
