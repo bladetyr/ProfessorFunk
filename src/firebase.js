@@ -1,6 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { getDatabase, ref, set } from "firebase/database";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -21,9 +23,25 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
+// Write data to database
+function writePlayerData(userId, name, email, score1) {
+    const db = getDatabase();
+    set(ref(db, 'users/' + userId), {
+      username: name,
+      email: email,
+      high_score1 : score1
+    });
+  }
+
+
+
+// I think this could be useful for retrieving data from the database
+/*
 async function getPlayers(db) {
     const playersCol = collection(db, 'usernames');
     const playerSnapshot = await getDocs(playersCol);
     const playerList = playerSnapshot.docs.map(doc => doc.data());
     return playerList;
   }
+*/
+  
