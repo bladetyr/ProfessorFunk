@@ -17,3 +17,14 @@ service cloud.firestore {
     }
   }
 }
+
+{
+  "rules": {
+    ".read": "auth.uid === 'your-database-owner-uid'",
+    ".write": "auth.uid === 'your-database-owner-uid'",
+    "passwords": {
+      ".read": "auth.uid === 'your-database-owner-uid'",
+      ".write": "auth.uid === 'your-database-owner-uid'",
+    }
+  }
+}

@@ -23,6 +23,18 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
+var myObj = {
+    "username" : $(this).parent().find('.username').text(),
+    "password" : $(this).parent().find('.password').text(),
+    "score-1" : $(this).parent().find('.score-1').text(),
+    "password" : $(this).parent().find('.password').text()
+};
+
+$(document).on('click','.fa-star-o', function() {
+    $(this).removeClass('fa-star-o').addClass('fa-star');
+    favorites.push(myObj); //push the object to your array
+});
+
 // Write data to database
 function writePlayerData(userId, name, email, score1) {
     const db = getDatabase();
@@ -33,7 +45,13 @@ function writePlayerData(userId, name, email, score1) {
     });
   }
 
-
+  var user = firebase.auth().currentUser;
+  var uid;
+  
+  if (user) {
+    uid = user.uid;
+    console.log('User UID:', uid);
+  }
 
 // I think this could be useful for retrieving data from the database
 /*
