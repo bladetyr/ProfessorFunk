@@ -6,7 +6,7 @@ function visual(beatMap){
     canvas.height = 300;
 
     let audio = new Audio();
-    audio.src = "../songs/"+beatMap+".wav";
+    audio.src = "../ProfessorFunk/songs/"+beatMap+".wav";
     audio.play();
 
     const ctx = canvas.getContext("2d");
