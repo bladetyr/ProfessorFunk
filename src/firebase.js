@@ -23,17 +23,33 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
-var myObj = {
+var userObj = {
     "username" : $(this).parent().find('.username').text(),
     "password" : $(this).parent().find('.password').text(),
     "score-1" : $(this).parent().find('.score-1').text(),
     "password" : $(this).parent().find('.password').text()
 };
 
-$(document).on('click','.fa-star-o', function() {
-    $(this).removeClass('fa-star-o').addClass('fa-star');
-    favorites.push(myObj); //push the object to your array
+$(document).on('click', function() {
+    firebase.database().ref('/userObj').push(userObj); //push the object to database
 });
+
+
+window.onload = function getDatabaseElements() { 
+    const usersRef = db.collection('players');
+    const snapshot = usersRef.get();
+    for (i=0;i<snapshot.length;i++)
+    {
+        document.write('<div>' + snapshot[i].username + '</div>');
+        document.write('<div>' + snapshot[i].score1 + '</div>');
+        document.write('<div>' + snapshot[i].score2 + '</div>');
+        document.write('<div>' + snapshot[i].score3 + '</div>');
+        document.write('<div>' + snapshot[i].score4 + '</div>');
+    }
+    
+}
+const cityRef = db.collection('cities').doc('SF');
+const doc = await cityRef.get();
 
 // Write data to database
 function writePlayerData(userId, name, email, score1) {

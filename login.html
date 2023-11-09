@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Professor Funk</title>
+    <link href="StyleSheet.css" rel="stylesheet">
+
+    <style>
+    .animated-box{
+        border-radius: 5px;
+        border: 1px solid #000;
+        padding: 10px 10px;
+        background: rgb(0, 247, 255);
+        font-size: 2em;
+        width: 40%;
+        height: 30%;
+        align-items : center;
+        position: fixed;
+        top: 30%;
+        left: 30%;
+        margin: auto;
+        cursor: pointer;
+        animation: fadeInAnimation ease 3s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes fadeInAnimation {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    </style>
+</head>
+<body>
+<h1>Professor Funk</h1>
+
+<body>
+    <div></div>
+    <div id="loginBox" class="animated-box">
+        <form id = "login" class="center-font">
+            <b>Enter Name:</b>
+            <br>
+            <input id='user_name' style="color:blueviolet" name="user_name" type='text' class='form-control' required>
+            <input id='password' style="color:blueviolet" name="password" type='text' class='form-control' required>
+            <input class="form-control" type="submit" value="Send">
+        </form>
+    </div>
+</body>

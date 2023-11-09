@@ -32,3 +32,8 @@ body {
     background-attachment: fixed;
     background-size: 100% 100%;
 }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+  }
