@@ -1,15 +1,15 @@
 // DIRECTION/TIME TAKEN TO GO UP/TIME UNTIL READING NEXT NOTE
-function parseBeatmap(beatMap){
-    spawnNote("DOWN");
-    spawnNote("UP");
-    spawnNote("LEFT");
-    spawnNote("RIGHT");
+async function parseBeatmap(beatMap){
     var file = "../beatmaps/"; 
-    file += beatMap;
-    $.get(file,function(txt){
+    file += beatMap + ".txt";
+    $.get(file,async function(txt){
+        console.log(file);
         var lines = txt.split("\n");
         for (var i = 0, len = lines.length; i < len; i++) {
-            console.log(lines[i]);
+            noteInstruction = lines[i].split('/');
+            spawnNote(noteInstruction[0], noteInstruction[1]);
+            const delay = ms => new Promise(res => setTimeout(res, ms));
+            await delay(noteInstruction[2]*1000);
         }
     });
     return 0;
@@ -22,14 +22,8 @@ function playAudio(beatMap){
     return 0;
 }
 
-// TEMP VARIABLES FOR ARROW MOVEMENT TESTING
-var dir = "LEFT";
-var speed = 2;
-var wait = 1;
-
 // SPAWN NOTES
-function spawnNote(direction){
-    console.log("here");
+function spawnNote(direction, speed){
     var arrow = document.createElement("img");
     //dictates where on screen note spawns based on direction
     if(direction == 'LEFT'){
@@ -48,7 +42,7 @@ function spawnNote(direction){
     var appendThis = document.getElementById("arrows");
     appendThis.appendChild(arrow);
     //make note scroll
-    scrollNote(arrow, speed);
+    var kill = scrollNote(arrow, speed);
 }
 
 function scrollNote(note, scrollTime){
@@ -58,5 +52,12 @@ function scrollNote(note, scrollTime){
 
     //screen height / scrollTime, for for loop, clear and redraw image (hide and show?)
     note.animate({bottom: "800px"}, scrollTime*1000, scrollNote);
+    return true;
+    // while(True){
+    //     if(!note.is(":animated")){
+    //         note.remove();
+    //         break;
+    //     }
+    // }
 }
 
