@@ -45,13 +45,16 @@ function spawnNote(direction, speed){
     var kill = scrollNote(arrow, speed);
 }
 
-function scrollNote(note, scrollTime){
+async function scrollNote(note, scrollTime){
     //inspired by https://stackoverflow.com/questions/12712592/how-to-make-a-small-image-move-from-one-side-of-the-screen-to-the-other-with-js
     //takes in note somehow? maybe grab by element ID?
     //can we generate unique note IDs and then pass them in here?
 
     //screen height / scrollTime, for for loop, clear and redraw image (hide and show?)
     note.animate({bottom: "800px"}, scrollTime*1000, scrollNote);
+    const delay = ms => new Promise(res => setTimeout(res, ms));
+    await delay(scrollTime*900);
+    note.remove();
     return true;
     // while(True){
     //     if(!note.is(":animated")){
