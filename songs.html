@@ -4,9 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Professor Funk</title>
-    <link href="StyleSheet.css" rel="stylesheet">
+    <link href="/ProfessorFunk/StyleSheet.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    <script src="/src/beatmapInterpreter.js"></script>
+    <script src="/ProfessorFunk/src/audioVisualizer.js"></script>
+    <script src="/ProfessorFunk/src/beatmapInterpreter.js"></script>
 </head>
 <body>
 <script>
@@ -19,6 +20,7 @@
     $(document).ready( function() {
         parseBeatmap(beatValue);
         playAudio(beatValue);
+        visual(beatValue);
     });
 </script>
 
@@ -32,10 +34,10 @@
 
 <!-- STATIC GRAY ARROWS (MARKERS)-->
 <div style="margin:auto;padding:3%;z-index:2">
-    <img src="images/leftArrowShadow.png" alt="left arrow shadow">
-    <img src="images/downArrowShadow.png" alt="down arrow shadow">
-    <img src="images/upArrowShadow.png" alt="up arrow shadow">
-    <img src="images/rightArrowShadow.png" alt="right arrow shadow">
+    <img src="/ProfessorFunk/images/leftArrowShadow.png" alt="left arrow shadow">
+    <img src="/ProfessorFunk/images/downArrowShadow.png" alt="down arrow shadow">
+    <img src=/ProfessorFunk/"images/upArrowShadow.png" alt="up arrow shadow">
+    <img src="/ProfessorFunk/images/rightArrowShadow.png" alt="right arrow shadow">
 </div>
 <br>
 <div id="arrows" style="margin:auto; padding: 3%; height:30px; width:90%; z-index:1; position:relative; top:0px">

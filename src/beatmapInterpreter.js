@@ -1,6 +1,6 @@
 // DIRECTION/TIME TAKEN TO GO UP/TIME UNTIL READING NEXT NOTE
 async function parseBeatmap(beatMap){
-    var file = "../beatmaps/"; 
+    var file = "..ProfessorFunk/beatmaps/"; 
     file += beatMap + ".txt";
     $.get(file,async function(txt){
         console.log(file);
@@ -27,16 +27,16 @@ function spawnNote(direction, speed){
     var arrow = document.createElement("img");
     //dictates where on screen note spawns based on direction
     if(direction == 'LEFT'){
-        arrow.src = "images/leftArrow.png";
+        arrow.src = "/ProfessorFunk/images/leftArrow.png";
         arrow.setAttribute("style","margin-left:-28%;bottom:-120px;position:absolute");
     }else if(direction == 'RIGHT'){
-        arrow.src = "images/rightArrow.png";
+        arrow.src = "/ProfessorFunk/images/rightArrow.png";
         arrow.setAttribute("style","margin-left:14%;bottom:-120px;position:absolute");
     }else if(direction == 'UP'){
-        arrow.src = "images/upArrow.png";
+        arrow.src = "/ProfessorFunk/images/upArrow.png";
         arrow.setAttribute("style","margin-left:0%;bottom:-120px;position:absolute");
     }else{
-        arrow.src = "images/downArrow.png";
+        arrow.src = "/ProfessorFunk/images/downArrow.png";
         arrow.setAttribute("style","margin-left:-14%;bottom:-120px;position:absolute");
     }
     var appendThis = document.getElementById("arrows");
