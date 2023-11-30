@@ -1,27 +1,45 @@
+var admin = require("firebase-admin");
+
+var serviceAccount = require("/servicekey.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://professor-funk-game-default-rtdb.firebaseio.com"
+});
+
+const { getDatabase } = require('firebase-admin/database');
+const db = getDatabase();
+const ref = db.ref('server/saving-data/');
+const usersRef = ref.child('users');
+
+
+function newplayerdata(){
+  var email = document.getElementById("email").innerHTML;
+  var password = document.getElementById("password").innerHTML;
+  usersRef.child(email).setValueAsync(new User(password,0,0,0,0));
+}
+
+/*
+usersRef.set({
+alanisawesome: {
+date_of_birth: 'June 23, 1912',
+full_name: 'Alan Turing'
+},
+gracehop: {
+date_of_birth: 'December 9, 1906',
+full_name: 'Grace Hopper'
+}
+});
+
+
+
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getDatabase, ref, set } from "firebase/database";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyDhxiY6nzTMeQP-z-4lRyEzmtYzKyF6NmE",
-  authDomain: "professor-funk-game.firebaseapp.com",
-  projectId: "professor-funk-game",
-  storageBucket: "professor-funk-game.appspot.com",
-  messagingSenderId: "471546053599",
-  appId: "1:471546053599:web:621334d0e9b40bab997a6a",
-  measurementId: "G-Q8FND4G82T"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const db = getFirestore(app);
 
 var userObj = {
     "username" : $(this).parent().find('.username').text(),
