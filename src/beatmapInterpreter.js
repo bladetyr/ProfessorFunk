@@ -1,6 +1,6 @@
 // DIRECTION/TIME TAKEN TO GO UP/TIME UNTIL READING NEXT NOTE
 async function parseBeatmap(beatMap){
-    var file = "/beatmaps/"; 
+    var file = "ProfessorFunk/beatmaps/"; 
     file += beatMap + ".txt";
     $.get(file,async function(txt){
         console.log(file);
@@ -17,7 +17,7 @@ async function parseBeatmap(beatMap){
 
 // PLAY SONG
 function playAudio(beatMap){
-    var audio = new Audio('/songs/'+beatMap+'.wav');
+    var audio = new Audio('ProfessorFunk/songs/'+beatMap+'.wav');
     audio.play();
     return 0;
 }
