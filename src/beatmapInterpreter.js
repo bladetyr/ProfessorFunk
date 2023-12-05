@@ -17,7 +17,7 @@ async function parseBeatmap(beatMap){
 
 // PLAY SONG
 function playAudio(beatMap){
-    var audio = new Audio('ProfessorFunk/songs/'+beatMap+'.wav');
+    var audio = new Audio('songs/'+beatMap+'.wav');
     audio.play();
     return 0;
 }
