@@ -1,24 +1,43 @@
-var admin = require("firebase-admin");
-
-var serviceAccount = require("/servicekey.json");
-
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://professor-funk-game-default-rtdb.firebaseio.com"
-});
-
-const { getDatabase } = require('firebase-admin/database');
-const db = getDatabase();
-const ref = db.ref('server/saving-data/');
-const usersRef = ref.child('users');
-
+$( document ).ready(function() {
+  e.preventDefault();
+  $('#signupbtn').click(function(){ 
+    $.ajax({ 
+        url: "/api/v1/addUser?user="+document.getElementById("newemail").value 
+        + "&password=" + document.getElementById("newpassword").value,
+        type: 'POST', 
+        success: function(result) { 
+            console.log("Add Returned"); 
+            document.getElementById("users").innerHTML = "<pre>"+JSON.stringify(JSON.parse(result), null, 2)+"</pre>"; 
+        } 
+    });
+  })
+  //let signupbtn = document.getElementById("signupbtn");
+  //signupbtn.addEventListener("click", newplayerdata());
+  console.log("Ready!");
+})
 
 function newplayerdata(){
+  var email = document.getElementById("newemail").innerHTML;
+  var password = document.getElementById("newpassword").innerHTML;
+  event.preventDefault();
+  console.log(email);
+}
+/*
+document.getElementById("myForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
   var email = document.getElementById("email").innerHTML;
   var password = document.getElementById("password").innerHTML;
-  usersRef.child(email).setValueAsync(new User(password,0,0,0,0));
-}
-
+  console.log(email);
+  usersRef.child(email).set({
+    password: password,
+    score1: 0,
+    score2: 0,
+    score3: 0,
+    score4: 0
+  });
+});
+*/
 /*
 usersRef.set({
 alanisawesome: {
