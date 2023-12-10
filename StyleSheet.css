@@ -164,3 +164,93 @@ input[type=text], input[type=password] {
     border: 1px solid #000;
     margin-bottom: 10px;
 }
+
+/* Leaderboard */
+* {
+  color: rgb(7, 0, 0);
+  text-align: center;
+}
+
+h1 {
+  font-size: 50px;
+  color: rgb(16, 157, 251);
+  margin-bottom: 10px;
+  text-decoration: underline;
+}
+
+body {
+  background-image: url("../images/background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+.box {
+  width: 500px;
+  height: 400px;
+  margin: 100px auto 0;
+  background: #4f82f9;
+  padding: 25px 40px;
+  position: relative;
+  border-radius: 5px;
+}
+
+.lboard_wrap{
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  background: #e670d4;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.lboard_wrap .lboard_item{
+  padding: 25px;
+}
+
+.lboard_wrap .lboard_mem{
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #ffe773;
+}
+
+.lboard_wrap .lboard_mem .name_bar{
+  margin: 0 20px;
+  width: calc(100% - 150px);
+}
+
+.lboard_wrap .lboard_mem .name_bar p{
+  color: #3a3d51;
+}
+
+.lboard_wrap .lboard_mem .name_bar p span{
+  margin-right: 5px;
+}
+
+.lboard_wrap .lboard_mem .points{
+  width: 100px;
+  color: #3a3d51;
+}
+
+.lboard_wrap .lboard_mem .name_bar .bar_wrap{
+  width: 100%;
+  height: 5px;
+  background: #d5b000;
+  margin-top: 5px;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.lboard_wrap .lboard_mem .name_bar .bar_wrap .inner_bar{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background: #fff;
+  border-radius: 5px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
