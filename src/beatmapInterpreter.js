@@ -1,3 +1,5 @@
+var score = 0;
+
 // DIRECTION/TIME TAKEN TO GO UP/TIME UNTIL READING NEXT NOTE
 async function parseBeatmap(beatMap){
     var file = "beatmaps/"; 
@@ -47,64 +49,53 @@ function spawnNote(direction, speed){
 
 async function scrollNote(note, scrollTime, direction){
     //inspired by https://stackoverflow.com/questions/12712592/how-to-make-a-small-image-move-from-one-side-of-the-screen-to-the-other-with-js
-    //takes in note somehow? maybe grab by element ID?
-    //can we generate unique note IDs and then pass them in here?
-
-    //screen height / scrollTime, for for loop, clear and redraw image (hide and show?)
     note.animate({bottom: "800px"}, scrollTime*1000, scrollNote);
+    var startTime = $.now();
     const delay = ms => new Promise(res => setTimeout(res, ms));
-    scoreNote(note, direction);
-    await delay(scrollTime*900);
+
+    //this timer is to prevent notes getting scored upon spawning
+    await delay(100);
+    scoreNote(note, direction, startTime, scrollTime);
+
+    //deletes note once it scrolls off screen (if the player misses it)
+    await delay(scrollTime*700);
     note.remove();
     return true;
-    // while(True){
-    //     if(!note.is(":animated")){
-    //         note.remove();
-    //         break;
-    //     }
-    // }
 }
 
-function scoreNote(note, direction){
-    console.log('I ran');
-    var score = 0;
-    //get gray notes
-    const GUArrow = document.getElementById("GUArrow");
-    const GDArrow = document.getElementById("GDArrow");
-    const GRArrow = document.getElementById("GRArrow");
-    const GLArrow = document.getElementById("GLArrow");
+function scoreNote(note, direction, startTime, scrollTime){
     //keypress listener
     document.addEventListener("keydown", e =>{
-        input.querySelector(".key").innerText = e.key;
         let keypress = e.key;
-        if ( direction == "UP" && (keypress == "w" || keypress == "up")){
-            //check how far arrow is from gray arrow
-            var arrow = GUArrow.getBoundingClientRect();
-            var center = arrow.height + arrow.width*0.5;
-            var centerPos = arrow.y - center;
+        e.stopPropagation();
+        console.log("Key is: ", keypress);
+        // long if statement because we want to limit it to certain keys for certain notes without repeated code
+        if ((direction == "UP" && (keypress == "w" || keypress == "up"))
+        || (direction == "DOWN" && (keypress == "s" || keypress == "down"))
+        || (direction == "LEFT" && (keypress == "a" || keypress == "left"))
+        || (direction == "RIGHT" && (keypress == "d" || keypress == "right"))){
 
-            //get for note
-            var noteBound = note.getBoundingClientRect();
-            var noteCenter = note.height + note.width*0.5;
-            var notePos = noteBound.y - noteCenter;
+            //timeDiff = time taken to press note
+            //this calculates the time difference for scoring
+            var timeDiff = startTime - $.now();
+            var difference = scrollTime*337 - timeDiff;
 
-            console.log(center);
-            console.log(noteCenter);
-            var distance = centerPos - notePos;
             //award points
-            score += 100 - distance*5;
-            console.log("The score is: ", score);
+            score += 100 - difference/50;
+            var added = 100 - difference/50;
+            //make score an integer instead of an ugly float
+            score = Math.round(score);
+
             //avoid negative scores
             if(score < 0){
                 score = 0;
             }
-            console.log("The new score is: ", score);
-            return score
+            //update score visibly for player
+            document.getElementById("scoredisplay").innerHTML = score;
+            note.remove();
         }
+        return true;
     })
-    //listen for button press (WASD or arrow keys) (this is done in songs.html)
-    //check distance from gray arrow center (in pixels)
-    //score = 10 - 0.1*distance ?
-
+    return score
 }
 
