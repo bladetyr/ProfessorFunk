@@ -1,20 +1,42 @@
+
 $( document ).ready(function() {
-  e.preventDefault();
-  $('#signupbtn').click(function(){ 
-    $.ajax({ 
-        url: "/api/v1/addUser?user="+document.getElementById("newemail").value 
-        + "&password=" + document.getElementById("newpassword").value,
-        type: 'POST', 
-        success: function(result) { 
-            console.log("Add Returned"); 
-            document.getElementById("users").innerHTML = "<pre>"+JSON.stringify(JSON.parse(result), null, 2)+"</pre>"; 
-        } 
+  let userData = {};
+  let loggedin = false;
+  let buttons = document.querySelector(".song-select");
+  if (buttons) {
+      buttons.disabled = !loggedin;
+  }
+    $.ajax({
+    url: '/api/v1/listUsers',
+    type: 'GET',
+    dataType: "json",
+    success: function(result) {
+      userData = result;
+      console.log("Data retrieved!");
+      console.log(userData);
+    }
     });
-  })
   //let signupbtn = document.getElementById("signupbtn");
   //signupbtn.addEventListener("click", newplayerdata());
   console.log("Ready!");
+  $('#signupbtn').click(function(){ 
+    $.ajax({ 
+        url: "/api/v1/addUser?user="+document.getElementById("newemail").value.replace(".","_") 
+        + "&password=" + document.getElementById("newpassword").value,
+        type: 'POST', 
+        dataType: "json",
+        success: function(result) { 
+          loggedin = true;
+          console.log("Add Returned"); 
+        } 
+    });
+    //insert function to change user signed in
+  })
 })
+
+function signupalert(){
+  alert("Successfully signed up!");
+}
 
 function newplayerdata(){
   var email = document.getElementById("newemail").innerHTML;
@@ -71,20 +93,8 @@ $(document).on('click', function() {
     firebase.database().ref('/userObj').push(userObj); //push the object to database
 });
 
-
-window.onload = function getDatabaseElements() { 
-    const usersRef = db.collection('players');
-    const snapshot = usersRef.get();
-    for (i=0;i<snapshot.length;i++)
-    {
-        document.write('<div>' + snapshot[i].username + '</div>');
-        document.write('<div>' + snapshot[i].score1 + '</div>');
-        document.write('<div>' + snapshot[i].score2 + '</div>');
-        document.write('<div>' + snapshot[i].score3 + '</div>');
-        document.write('<div>' + snapshot[i].score4 + '</div>');
-    }
-    
-}
+*/
+/*
 const cityRef = db.collection('cities').doc('SF');
 const doc = await cityRef.get();
 

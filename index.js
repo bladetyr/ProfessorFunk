@@ -30,15 +30,44 @@ const db = getDatabase();
 const ref = db.ref('server/saving-data/');
 const usersRef = ref.child('users');
 
+/*
+window.onload = function getDatabaseElements() { 
+  const usersRef = db.collection('players');
+  const snapshot = usersRef.get();
+  for (i=0;i<snapshot.length;i++)
+  {
+      document.write('<div>' + snapshot[i].getKey() + '</div>');
+      document.write('<div>' + snapshot[i].score1 + '</div>');
+  }
+  
+}
+*/
 
-app.get('/api/v1/addUsers', function(req, res) { 
-    console.log("Add user");
-    usersRef.child(user).set({
-        password: password,
-        score1: 0,
+let users = {};
+app.get('/api/v1/listUsers', function(req, res) {
+  usersRef.once('value')
+    .then(snapshot => {
+      users = snapshot.val();
+      console.log(users);
+      res.json(users); // Send the JSON data as the response
+    })
+    .catch(error => {
+      console.error('Error fetching data from Firebase:', error);
+      res.status(500).send('Internal Server Error');
     });
-    //res.render('index', {});
-}); 
+});
+
+app.post('/api/v1/addUser', function(req, res) { 
+    const newpassword = req.query.password;
+    const newemail = req.query.user;
+    console.log("Add user");
+    usersRef.child(newemail).set({
+        password: newpassword,
+        score1: 0
+    });
+    console.log("Successfully added user");
+    res.end();
+});
 
 app.use( function ( req, res, next ) { 
  const { url, path: routePath } = req ; 
