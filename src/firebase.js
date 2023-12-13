@@ -1,4 +1,6 @@
-
+//userData stores the json data that contains all of the users on firebase
+//loggedin stores a boolean value of if a user is logged in or not
+//userNow stores a string representing the email of the current user
 $( document ).ready(function() {
   let userData = {};
   let loggedin = false;
@@ -42,13 +44,28 @@ $( document ).ready(function() {
     });
     //insert function to change user signed in
   })
-  $('#signinbtn').click(function(){
-    loggedin = true;
-    userNow = document.getElementById("uname").value.replace("_",".");
-    console.log(userNow);
-    document.getElementById("topright").innerHTML = userNow;
+  $('#signinbtn').click(function(event){ 
+    event.preventDefault();
+    console.log("Signup button clicked");
+    if (userData.hasOwnProperty(document.getElementById("uname").value.replace(".","_"))){
+      if (userData[document.getElementById("uname").value.replace(".","_")].password == document.getElementById("password").value){
+        loggedin = true;
+        userNow = document.getElementById("uname").value.replace("_",".");
+        console.log(userNow);
+        document.getElementById("topright").innerHTML = userNow;
+        document.getElementById('id01').style.display='none'
+        alert("Successfully Signed In!");
+      }
+      else{
+        alert("Incorrect Credentials");
+      }
+    }
+    else {
+      alert("Incorrect Credentials");
+    }
   })
 })
+  
 
 function newplayerdata(){
   var email = document.getElementById("newemail").innerHTML;
@@ -56,85 +73,3 @@ function newplayerdata(){
   event.preventDefault();
   console.log(email);
 }
-/*
-document.getElementById("myForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  var email = document.getElementById("email").innerHTML;
-  var password = document.getElementById("password").innerHTML;
-  console.log(email);
-  usersRef.child(email).set({
-    password: password,
-    score1: 0,
-    score2: 0,
-    score3: 0,
-    score4: 0
-  });
-});
-*/
-/*
-usersRef.set({
-alanisawesome: {
-date_of_birth: 'June 23, 1912',
-full_name: 'Alan Turing'
-},
-gracehop: {
-date_of_birth: 'December 9, 1906',
-full_name: 'Grace Hopper'
-}
-});
-
-
-
-// Import the functions you need from the SDKs you need
-
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-
-var userObj = {
-    "username" : $(this).parent().find('.username').text(),
-    "password" : $(this).parent().find('.password').text(),
-    "score-1" : $(this).parent().find('.score-1').text(),
-    "password" : $(this).parent().find('.password').text()
-};
-
-$(document).on('click', function() {
-    firebase.database().ref('/userObj').push(userObj); //push the object to database
-});
-
-*/
-/*
-const cityRef = db.collection('cities').doc('SF');
-const doc = await cityRef.get();
-
-// Write data to database
-function writePlayerData(userId, name, email, score1) {
-    const db = getDatabase();
-    set(ref(db, 'users/' + userId), {
-      username: name,
-      email: email,
-      high_score1 : score1
-    });
-  }
-
-  var user = firebase.auth().currentUser;
-  var uid;
-  
-  if (user) {
-    uid = user.uid;
-    console.log('User UID:', uid);
-  }
-
-// I think this could be useful for retrieving data from the database
-/*
-async function getPlayers(db) {
-    const playersCol = collection(db, 'usernames');
-    const playerSnapshot = await getDocs(playersCol);
-    const playerList = playerSnapshot.docs.map(doc => doc.data());
-    return playerList;
-  }
-*/
-  
