@@ -28,12 +28,12 @@
             
                 <div class="container">
                   <label for="uname"><b>Username</b></label>
-                  <input type="text" placeholder="Enter Username" name="uname" required>
+                  <input type="text" placeholder="Enter Username" name="uname" id="uname" required>
             
                   <label for="psw"><b>Password</b></label>
                   <input type="password" placeholder="Enter Password" name="psw" required>
                     
-                  <button type="submit" onclick="document.getElementById('id01').style.display='none'; alert('Successfully signed in!')">Login</button>
+                  <button type="submit" onclick="document.getElementById('id01').style.display='none'; alert('Successfully signed in!')" id="signinbtn">Login</button>
                   <label>
                     <input type="checkbox" checked="checked" name="remember"> Remember me
                   </label>
@@ -109,6 +109,7 @@ window.onclick = function(event) {
 </div>
 
 <h3 class="credits">Created By: Blade Tyrrell, Devin Cummings, Harleen Chahal, and Ahilyn Dipre-Figuereo</h3>
+<div class="topright" id="topright">Not Logged In</div>
 
 </body>
 </html>

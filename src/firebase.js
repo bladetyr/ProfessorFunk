@@ -2,10 +2,7 @@
 $( document ).ready(function() {
   let userData = {};
   let loggedin = false;
-  let buttons = document.querySelector(".song-select");
-  if (buttons) {
-      buttons.disabled = !loggedin;
-  }
+  let userNow = "";
     $.ajax({
     url: '/api/v1/listUsers',
     type: 'GET',
@@ -26,17 +23,32 @@ $( document ).ready(function() {
         type: 'POST', 
         dataType: "json",
         success: function(result) { 
-          loggedin = true;
-          console.log("Add Returned"); 
+          console.log("Add Returned");
         } 
+    });
+    loggedin = true;
+    userNow = document.getElementById("newemail").value;
+    console.log(document.getElementById("newemail").value);
+    document.getElementById("topright").innerHTML = userNow;
+    $.ajax({
+      url: '/api/v1/listUsers',
+      type: 'GET',
+      dataType: "json",
+      success: function(result) {
+        userData = result;
+        console.log("Data retrieved!");
+        console.log(userData);
+      }
     });
     //insert function to change user signed in
   })
+  $('#signinbtn').click(function(){
+    loggedin = true;
+    userNow = document.getElementById("uname").value.replace("_",".");
+    console.log(userNow);
+    document.getElementById("topright").innerHTML = userNow;
+  })
 })
-
-function signupalert(){
-  alert("Successfully signed up!");
-}
 
 function newplayerdata(){
   var email = document.getElementById("newemail").innerHTML;
