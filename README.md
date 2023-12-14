@@ -12,15 +12,21 @@ Firstly, fork this repo and save it wherever you'd like. After pulling it to you
 - You may deploy however you wish, but we installed the node http-server. Run this command in your terminal: 'npm i http-server -g'
 - If using the method above, deploy by typing 'http-server' into the terminal.
 
-- * The prefered method is by running node ..\index.js
+- * The prefered method is by running node ..\ProfessorFunk\index.js
 
 <a href="https://drive.google.com/file/d/1zZzjrMhaQImmhy6JgRUY5S5u-RUiQOKQ/view?usp=drive_link" target="_blank">Here is a video tutorial!</a>
 
 ## API Documentation
 
 In order to run this website using a firebase realtime database, we have
-implemented node.js and rest API methods. First, on the page loading we
-use a GET method to get the list of all users, which is used for the leaderboard
-and sign in authentification. We also use a POST method whenever a new
+implemented node.js and rest API methods. 
+
+First, in firebase.js, once the page loads we use a GET function to get the list 
+of all users, which is used for the leaderboard
+and sign in authentification. We also use a POST function whenever a new
 user is created in order to push that new user to the database, as well
 as when they get a new high score.
+
+In index.js, we use the post method to publish a new player node to the database,
+we use the get method to get all of the data from the database, and we
+use a put method to update the score values in the database.
