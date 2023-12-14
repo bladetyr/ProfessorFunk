@@ -21,7 +21,7 @@ h1 {
     border-radius: 5px;
     border: 1px solid #000;
     padding: 20px 20px;
-    background: rgb(0, 247, 255);
+    background: rgb(16, 157, 251);
     font-size: 2em;
     cursor: pointer;
 }
@@ -52,7 +52,7 @@ input[type=text], input[type=password] {
   
   /* Set a style for all buttons */
   button {
-    background-color: #04AA6D;
+    background-color: rgb(16, 157, 251);
     color: white;
     padding: 14px 20px;
     margin: 8px;

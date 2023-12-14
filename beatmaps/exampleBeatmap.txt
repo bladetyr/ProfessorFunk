@@ -1,4 +1,0 @@
-LEFT/3/0
-RIGHT/3/0
-UP/2/1
-DOWN/2/1

@@ -4,7 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Professor Funk</title>
-    <link href="/StyleSheet.css" rel="stylesheet">
+    <link href="/ProfessorFunk/StyleSheet.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="/ProfessorFunk/src/firebase.js"></script>
+    <script src="/ProfessorFunk/index.js"></script>
+
 </head>
 <body>
 <h1>Professor Funk</h1>
@@ -19,17 +23,17 @@
             <form class="modal-content animate" action="/action_page.php" method="post">
                 <div class="imgcontainer">
                   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                  <img src="/images/pf_logo.jpg" alt="Avatar" class="avatar">
+                  <img src="/ProfessorFunk/images/pf_logo.jpg" alt="Avatar" class="avatar">
                 </div>
             
                 <div class="container">
                   <label for="uname"><b>Username</b></label>
-                  <input type="text" placeholder="Enter Username" name="uname" required>
+                  <input type="text" placeholder="Enter Username" name="uname" id="uname" required>
             
                   <label for="psw"><b>Password</b></label>
-                  <input type="password" placeholder="Enter Password" name="psw" required>
+                  <input type="password" placeholder="Enter Password" name="psw" id="password" required>
                     
-                  <button type="submit">Login</button>
+                  <button type="submit"  id="signinbtn">Login</button>
                   <label>
                     <input type="checkbox" checked="checked" name="remember"> Remember me
                   </label>
@@ -62,10 +66,10 @@
       <p>Please fill in this form to create an account.</p>
       <hr>
       <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
+      <input type="text" placeholder="Enter Email" name="email" id="newemail" required>
       
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input type="password" placeholder="Enter Password" name="psw" id="newpassword" required>
  
       <label for="psw-repeat"><b>Repeat Password</b></label>
       <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
@@ -76,7 +80,7 @@
 
       <div class="clearfix">
         <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
-        <button type="submit" class="signupbtn">Sign Up</button>
+        <button type="button" class="signupbtn" onclick="document.getElementById('id02').style.display='none'; alert('Successfully signed up!')" id="signupbtn">Sign Up</button>
       </div>
     </div>
   </form>
@@ -98,13 +102,16 @@ window.onclick = function(event) {
 <h2>How to Play</h2>
 <p>Tap the direction keys at the same time that the flying arrows pass over the stationary arrows.</p>
 <div>
-    <a href="/ProfessorFunk/songs.html?song=The_1_2_3_4"><button class="song-select">The 1 2 3 4</button></a>
-    <a href="/ProfessorFunk/songs.html?song=song2"><button class="song-select">Song 2</button></a>
-    <a href="/ProfessorFunk/songs.html?song=song3"><button class="song-select">Song 3</button></a>
-    <a href="/ProfessorFunk/songs.html?song=song4"><button class="song-select">Song 4</button></a>
+    <a href="/ProfessorFunk/songs.html?song=The_1_2_3_4"><button class="song-select">The 1234</button></a>
+    <a href="/ProfessorFunk/songs.html?song=debbiegaming"><button class="song-select">Debbie Gaming</button></a>
+</div>
+
+<div>
+  <a href="/ProfessorFunk/leaderboard.html"><button>Leaderboard</button></a>
 </div>
 
 <h3 class="credits">Created By: Blade Tyrrell, Devin Cummings, Harleen Chahal, and Ahilyn Dipre-Figuereo</h3>
+<div class="topright" id="topright">Not Logged In</div>
 
 </body>
 </html>
