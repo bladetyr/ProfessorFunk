@@ -12,6 +12,8 @@ Firstly, fork this repo and save it wherever you'd like. After pulling it to you
 - You may deploy however you wish, but we installed the node http-server. Run this command in your terminal: 'npm i http-server -g'
 - If using the method above, deploy by typing 'http-server' into the terminal.
 
+- * The prefered method is by running node ..\index.js
+
 <a href="https://drive.google.com/file/d/1zZzjrMhaQImmhy6JgRUY5S5u-RUiQOKQ/view?usp=drive_link" target="_blank">Here is a video tutorial!</a>
 
 ## API Documentation
