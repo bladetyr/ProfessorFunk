@@ -26,25 +26,28 @@ function playAudio(beatMap){
 
 // SPAWN NOTES
 function spawnNote(direction, speed){
-    var arrow = document.createElement("img");
-    //dictates where on screen note spawns based on direction
-    if(direction == 'LEFT'){
-        arrow.src = "/ProfessorFunk/images/leftArrow.png";
-        arrow.setAttribute("style","margin-left:-28%;bottom:-120px;position:absolute");
-    }else if(direction == 'RIGHT'){
-        arrow.src = "/ProfessorFunk/images/rightArrow.png";
-        arrow.setAttribute("style","margin-left:14%;bottom:-120px;position:absolute");
-    }else if(direction == 'UP'){
-        arrow.src = "/ProfessorFunk/images/upArrow.png";
-        arrow.setAttribute("style","margin-left:0%;bottom:-120px;position:absolute");
-    }else{
-        arrow.src = "/ProfessorFunk/images/downArrow.png";
-        arrow.setAttribute("style","margin-left:-14%;bottom:-120px;position:absolute");
-    }
-    var appendThis = document.getElementById("arrows");
-    appendThis.appendChild(arrow);
+    console.log("speed is: ", speed);
+    if(speed >= 0){
+        var arrow = document.createElement("img");
+        //dictates where on screen note spawns based on direction
+        if(direction == 'LEFT'){
+            arrow.src = "/ProfessorFunk/images/leftArrow.png";
+            arrow.setAttribute("style","margin-left:-28%;bottom:-100px;position:absolute");
+        }else if(direction == 'RIGHT'){
+            arrow.src = "/ProfessorFunk/images/rightArrow.png";
+            arrow.setAttribute("style","margin-left:14%;bottom:-100px;position:absolute");
+        }else if(direction == 'UP'){
+            arrow.src = "/ProfessorFunk/images/upArrow.png";
+            arrow.setAttribute("style","margin-left:0%;bottom:-100px;position:absolute");
+        }else{
+            arrow.src = "/ProfessorFunk/images/downArrow.png";
+            arrow.setAttribute("style","margin-left:-14%;bottom:-100px;position:absolute");
+        }
+        var appendThis = document.getElementById("arrows");
+        appendThis.appendChild(arrow);
     //make note scroll
-    var kill = scrollNote(arrow, speed, direction);
+        scrollNote(arrow, speed, direction);
+    }
 }
 
 async function scrollNote(note, scrollTime, direction){
@@ -82,7 +85,6 @@ function scoreNote(note, direction, startTime, scrollTime){
 
             //award points
             score += 100 - difference/50;
-            var added = 100 - difference/50;
             //make score an integer instead of an ugly float
             score = Math.round(score);
 
