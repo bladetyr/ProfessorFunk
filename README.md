@@ -9,12 +9,12 @@
 ## Local Deployment
 Firstly, fork this repo and save it wherever you'd like. After pulling it to your IDE of choice, all you have to do is...
 - Remove every instance of '/ProfessorFunk'. Since this project is deployed in Blade's GitHub pages URL, the extra '/ProfessorFunk' was needed for online deployment. It is not needed for local deployment. This can easily be done in Visual Studio Code by using Ctrl + Shift + F and replacing all with nothing.
-- You may deploy however you wish, but we installed the node http-server. Run this command in your terminal: 'npm i http-server -g'
-- If using the method above, deploy by typing 'http-server' into the terminal.
 
-- * The prefered method is by running node ..\ProfessorFunk\index.js
+- First run 'npm install'
+- Then when that is done run 'node ..\ProfessorFunk\index.js'
+- Then simply go to http://localhost:8080
 
-<a href="https://drive.google.com/file/d/1zZzjrMhaQImmhy6JgRUY5S5u-RUiQOKQ/view?usp=drive_link" target="_blank">Here is a video tutorial!</a>
+<a href="https://drive.google.com/file/d/1aLuRimMcWP_KMXzPxCLNQIPtRWAyxOk_/view?usp=sharing" target="_blank">Here is a video tutorial!</a>
 
 ## API Documentation
 
