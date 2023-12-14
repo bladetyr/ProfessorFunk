@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "professor-funk-game",
+  "private_key_id": "65cab2ec0d1fd8d0020391d4e9085798b5f7eecd",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCu1ArUfpZjsQhh\nyj38ll9VIFx8a5TcWtsoVosHdsPozeo/3WaVBGEAGjoVM1lUhAUW7cX3wQb5v6tC\ndUsBzVyEtOOLqThap5QGo4E4k2/vTjbnlt/uBptUfkuwutzgK+Z8+0wKeF12dcr1\nh5FU9WNdOQ5WsvGbOo6Dan97W4aCEigZTyW72EAlfwX//JVKKpBqET3wbbKKcfsR\n1Ti1NAHdvXLQbokeYw9c9bD2gSC99t3ZMByOqwHA+84PzQkcHlIrEcPATetSGvUv\n4g5UwYOsjP9gkywypGRnT8CsFmJPpYt8Ke6xckJlZc/XZomuNNhQWuYuIXMiIRWC\ne0N7x2LXAgMBAAECggEAMLSeN8j0eN2PKj8/uaji8kJLwdXu6NzfBYPmw7OQrMEB\nK72woH9Rzsd/uvxNPMBy8opXhshd+yIswh0PQndF+Sqz4erI6miZUqgmje51VsQB\ng8+Cnztz9rwgtiG4+zL/yX3xF1GlKCV036ZfFL4wan5Ewl6j9M0BexcmYOWEuaOC\neTlah81UJ59bhoULa/vJ2SwetskBJrUPTHzcNtk5YfLiWgtXmhELgi1bDvD5B1zZ\n+/37xVgwBOCKO5yUbirDWg6mmAU5I6edvq87CkPSnnkSBqBVEKEjLvGU7atjUVvb\nBXOytMKjFbWBPyF9fYQnAsdlI+eJUX63cCAcoP3g0QKBgQDwIzmNe6YlfdgQTloO\nE+H0BxBI5ELKyfZmvnQ9v4CMkuc+NfeVFIoA70aJpxIvBt9BZ/rc4UWrlLkZjeui\nMWiQGNw0/R0oQasx/2dT69S9NnYCs6SN3iuGi6VwuYrvGSNw94i4HelL05j3Ah5R\nNBQ5OaF+Eb9O3HHkxdRNcdR5awKBgQC6YGyHqVQ7geLCIB1FYcK11fp7IlM7Nd2d\nq5H9H4UvT1HeY0DWEb8t2NKNzSzuvO0/f16y6dP5JBek8Q6/BBJcdi5B6qYahDal\n9wGzWahd/7LeSB1B6pvdxdZlm1P/BbnRltjnRAQEDZl833OCcGbVHRWOM9FByVfo\ntkPKz1U7RQKBgBZxZFaZwMxuN3xGpln8d7ij1FzLoIZtW678i8admDkLHbuNtabk\nNYWi1zfUOnnUrZbiTerIzwcbLjV6MxSEg548BJCbO1dg08wnb5PDTa2lYmAcQ/vS\nUMURVhPz800nT02mhMuYWA5zJy+mrgiu0lkKztIGfJe1OJvF9XKLee0jAoGAdvAX\n8o816O/fpODXrTJRDreqLLBgCzY54mfeN3nJBcMJzPDsLHCQ35Ix9DpOhWBdyxre\ndTDRjHni+Oi471+K1CS7KmezbtKXCVzTYgBCeRI3tLCysyEkLOgXBSqV9PZTehRZ\nAWUfZvLC07TJwyE2DqSL3/7jeKckCadfJesgSj0CgYBi4/qLdLs5l4u09lXE2wGu\nBKNAyhOxrZJ4LUGlqLHhZitBGxSFRaLUyGzZmlSksbDYF9/w4Yb6HrdiFPLLissw\nO19zeRm5MKMxmHBkyceKdjCBUkorRTi5cXtMZXz2mfGflwUNfwtK9dz28fb42cdM\nth0mkpH6KUy/6o5ew+VhiA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-mg19e@professor-funk-game.iam.gserviceaccount.com",
+  "client_id": "103547252623906047786",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-mg19e%40professor-funk-game.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
