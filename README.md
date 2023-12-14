@@ -30,3 +30,8 @@ as when they get a new high score.
 In index.js, we use the post method to publish a new player node to the database,
 we use the get method to get all of the data from the database, and we
 use a put method to update the score values in the database.
+
+In order to use each of the statements mentioned above, you need to provide them with certain perameters:
+- Post needs an email and a password and returns nothing
+- Get needs no paramters and returns a JSON object
+- Put needs an email and a score value and returns nothing
