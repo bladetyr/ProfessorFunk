@@ -4,10 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Professor Funk</title>
-    <link href="/ProfessorFunk/StyleSheet.css" rel="stylesheet">
+    <link href="/StyleSheet.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    <script src="/ProfessorFunk/src/audioVisualizer.js"></script>
-    <script src="/ProfessorFunk/src/beatmapInterpreter.js"></script>
+    <script src="/src/audioVisualizer.js"></script>
+    <script src="/src/beatmapInterpreter.js"></script>
+    <script src="/src/firebase.js"></script>
 </head>
 <body>
 <script>
@@ -44,9 +45,14 @@
 
 </div>
 
+<div>
+    <a href="/index.html"><button>Finish</button></a>
+  </div>
+
 <!-- The code below gets the most recent keyboard input and displays it, as well as keeping track of a score variable that is changed whenever w is pressed.
 In the future, this code will change to the pseudo code below this block where it tests what the y position of the moving arrow is relative to the y position 
 of the shadow arrow for the specific key pressed.-->
+<div class="topright" id="topright">Not Logged In</div>
 
 <h3 class="credits">Created By: Blade Tyrrell, Devin Cummings, Harleen Chahal, and Ahilyn Dipre-Figuereo</h3>
 

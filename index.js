@@ -42,8 +42,6 @@ window.onload = function getDatabaseElements() {
   
 }
 */
-
-let users = {};
 app.get('/api/v1/listUsers', function(req, res) {
   usersRef.once('value')
     .then(snapshot => {
@@ -68,6 +66,21 @@ app.post('/api/v1/addUser', function(req, res) {
     console.log("Successfully added user");
     res.end();
 });
+
+
+app.put('/api/v1/updateUser', function(req, res) { 
+  const score1 = req.query.score1;
+  const user = req.query.user;
+  console.log("Update user");
+  if (score1 > usersRef.child(user).child(score1).value){
+    usersRef.child(user).update({
+      score1: score1
+  });
+  }
+  console.log("Successfully edited user");
+  res.end();
+});
+
 
 app.use( function ( req, res, next ) { 
  const { url, path: routePath } = req ; 
