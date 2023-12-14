@@ -13,8 +13,6 @@ const app = express();
 const port = 8080; 
  
 
-//const {onRequest} = require("firebase-functions/v2/https");
-//const logger = require("firebase-functions/logger");
 
 const admin = require("firebase-admin");
 
@@ -30,18 +28,8 @@ const db = getDatabase();
 const ref = db.ref('server/saving-data/');
 const usersRef = ref.child('users');
 
-/*
-window.onload = function getDatabaseElements() { 
-  const usersRef = db.collection('players');
-  const snapshot = usersRef.get();
-  for (i=0;i<snapshot.length;i++)
-  {
-      document.write('<div>' + snapshot[i].getKey() + '</div>');
-      document.write('<div>' + snapshot[i].score1 + '</div>');
-  }
-  
-}
-*/
+
+//used for getting the database of users
 app.get('/api/v1/listUsers', function(req, res) {
   usersRef.once('value')
     .then(snapshot => {
@@ -55,6 +43,7 @@ app.get('/api/v1/listUsers', function(req, res) {
     });
 });
 
+//Used for making a new user
 app.post('/api/v1/addUser', function(req, res) { 
     const newpassword = req.query.password;
     const newemail = req.query.user;
@@ -91,6 +80,7 @@ app.use('/', express.static(path.join(__dirname, '')))
 app.listen(port, () => { 
  console.log(`Server running on port ${port}...`) 
 });
+
 // Create and deploy your first functions
 // https://firebase.google.com/docs/functions/get-started
 

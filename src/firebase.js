@@ -2,6 +2,8 @@
 //loggedin stores a boolean value of if a user is logged in or not
 //userNow stores a string representing the email of the current user
 $( document ).ready(function() {
+
+  //Updates the locally stored collection of users
   document.getElementById("topright").innerHTML = localStorage.getItem('userNow');
     $.ajax({
     url: '/api/v1/listUsers',
@@ -13,10 +15,11 @@ $( document ).ready(function() {
       console.log(result);
     }
     });
-  //let signupbtn = document.getElementById("signupbtn");
-  //signupbtn.addEventListener("click", newplayerdata());
   console.log("Ready!");
 
+
+  //When the signup button is pressed the current user is updated, a new user is added, and the
+  //locally stored list of users is updated
   $('#signupbtn').click(function(){ 
     $.ajax({ 
         url: "/api/v1/addUser?user="+document.getElementById("newemail").value.replace(".","_") 
@@ -43,6 +46,9 @@ $( document ).ready(function() {
     });
   })
 
+
+  //When the signup button is clicked, it tests to see if the credentials are correct, and if they are
+  //the current user is updated
   $('#signinbtn').click(function(event){ 
     event.preventDefault();
     console.log("Signup button clicked");
@@ -64,6 +70,7 @@ $( document ).ready(function() {
     }
   })
 
+  //When the finish button is clicked the high score for the current user is updated
   $('#finishbtn').click(function(event){ 
     $.ajax({ 
       url: "/api/v1/updateUser?user="+localStorage.getItem('userNow') 
@@ -78,11 +85,4 @@ $( document ).ready(function() {
     console.log("Finish button clicked")
   })
 })
-  
 
-function newplayerdata(){
-  var email = document.getElementById("newemail").innerHTML;
-  var password = document.getElementById("newpassword").innerHTML;
-  event.preventDefault();
-  console.log(email);
-}
